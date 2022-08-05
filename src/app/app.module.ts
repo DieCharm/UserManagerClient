@@ -11,10 +11,11 @@ import { FormComponent } from './users/form/form.component';
 import {FormsModule} from "@angular/forms";
 import {Routes, RouterModule} from "@angular/router";
 import { HomeComponent } from './users/home/home.component';
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {JwtModule} from "@auth0/angular-jwt";
 import {AppGuard} from "./guards/app.guard";
 import {AuthGuard} from "./guards/auth.guard";
+import {AuthenticationInterceptor} from "./users/authentication.interceptor";
 
 const appRoutes: Routes = [
   {path: "", component: HomeComponent, canActivate: [AppGuard]},
@@ -41,7 +42,11 @@ const appRoutes: Routes = [
     JwtModule,
     RouterModule.forRoot(appRoutes)
   ],
-  providers: [],
+  providers: [{
+    provide: HTTP_INTERCEPTORS,
+    useClass: AuthenticationInterceptor,
+    multi: true
+  }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

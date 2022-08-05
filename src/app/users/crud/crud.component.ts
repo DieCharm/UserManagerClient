@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import {User} from "../../../models/user";
+import {UsersService} from "../../../services/users.service";
 
 @Component({
   selector: 'app-crud',
@@ -7,9 +9,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CrudComponent implements OnInit {
 
-  constructor() { }
+  userList: User[] = [];
+
+  constructor(private userService: UsersService) { }
 
   ngOnInit(): void {
+    this.getAll();
+  }
+
+  getAll(): void {
+    this.userService.allUsers()
+      .subscribe({
+        next: users =>
+          this.userList = users
+      });
   }
 
 }

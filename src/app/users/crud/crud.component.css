@@ -1,0 +1,9 @@
+.crud-container {
+  display: flex;
+  flex-direction: row;
+  width: 100vw;
+}
+
+.m100 {
+  margin: 100px;
+}

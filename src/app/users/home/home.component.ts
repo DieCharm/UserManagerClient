@@ -9,10 +9,13 @@ import {Router} from "@angular/router";
 })
 export class HomeComponent implements OnInit {
 
+  username: string = '';
+
   constructor(private authentication: AuthenticationService,
               private router: Router) { }
 
   ngOnInit(): void {
+    this.username = this.authentication.getUsername();
   }
 
   logout(): void {

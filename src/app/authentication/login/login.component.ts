@@ -2,7 +2,6 @@ import { Component } from '@angular/core';
 import { Login } from "../../../models/login";
 import {AuthenticationService} from "../../../services/authentication.service";
 import {Router} from "@angular/router";
-import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-login',
@@ -28,10 +27,10 @@ export class LoginComponent {
             this.router.navigate([""]);
           }
         },
-        error: (response: HttpErrorResponse) =>
+        error: () =>
         {
-          this.errorMessage = response.message;
-          alert("Login error. Please try again :(");
+          this.errorMessage = "Login error. Please try again";
+          this.loginModel = new Login();
         }
       });
 

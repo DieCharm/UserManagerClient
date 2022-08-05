@@ -1,8 +1,6 @@
 import { Component } from '@angular/core';
 import {Register} from "../../../models/register";
 import {AuthenticationService} from "../../../services/authentication.service";
-import {Router} from "@angular/router";
-import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-register',
@@ -22,8 +20,11 @@ export class RegisterComponent {
       .subscribe({
         next: () =>
           this.registered = true,
-        error: (response: HttpErrorResponse) =>
-          this.errorMessage = response.message
+        error: () =>
+        {
+          this.errorMessage = "Registration error. Please try again";
+          this.registerModel = new Register();
+        }
       });
   }
 

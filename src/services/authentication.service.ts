@@ -39,8 +39,21 @@ export class AuthenticationService {
     let token = localStorage.getItem("token");
     if (token)
     {
-      return !jwtHelper.isTokenExpired(token);
+      if (!jwtHelper.isTokenExpired(token))
+      {
+        return true;
+      }
     }
+    localStorage.removeItem("token");
     return false;
+  }
+
+  getUsername(): string {
+    let token = localStorage.getItem("token");
+    var payload = jwtHelper.decodeToken(
+      (token !== undefined && token !== null)
+      ? token
+      : undefined);
+    return payload ? payload.unique_name : '';
   }
 }

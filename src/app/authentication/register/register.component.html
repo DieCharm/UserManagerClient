@@ -1,23 +1,20 @@
 <h2 *ngIf="!registered">Register</h2>
 <form *ngIf="!registered" #myForm="ngForm" novalidate>
   <div class="form-group">
-    <label>Username:</label>
-    <input class="form-control" type="text" name="username" [min]="2"
+    <input class="form-control" type="text" name="username" [minlength]="2" [maxlength]="30"  placeholder="Username"
            [(ngModel)]="registerModel.username" required />
   </div>
   <div class="form-group">
-    <label>Email:</label>
-    <input class="form-control" type="email" name="email" [min]="5"
+    <input class="form-control" type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+           [minlength]="5" [maxlength]="30" placeholder="Email"
            [(ngModel)]="registerModel.email" required />
   </div>
   <div class="form-group">
-    <label>Password:</label>
-    <input class="form-control" type="password" name="pass" minlength="5"
+    <input class="form-control" type="password" name="pass" [minlength]="5" [maxlength]="30" placeholder="Password"
            [(ngModel)]="registerModel.password" required/>
   </div>
   <div class="form-group">
-    <label>Confirm Password:</label>
-    <input class="form-control" type="password" name="confirmPass" minlength="5"
+    <input class="form-control" type="password" name="confirmPass" [minlength]="5" [maxlength]="30" placeholder="Confirm Password"
            [(ngModel)]="registerModel.confirmPassword" required/>
   </div>
   <div>

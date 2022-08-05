@@ -1,2 +1,24 @@
-<p>crud works!</p>
-<app-form></app-form>
+<div class="crud-container">
+
+  <div class="m100">
+
+    <h2>Users</h2>
+
+    <table>
+      <tbody>
+      <tr *ngFor="let user of userList">
+        <app-user [model]="user" (onChange)="getAll()"></app-user>
+      </tr>
+      </tbody>
+    </table>
+
+  </div>
+
+  <div class="m100">
+    <h2>Add User</h2>
+    <app-form (onAdd)="getAll()"></app-form>
+  </div>
+
+</div>
+
+
