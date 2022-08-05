@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute, Router} from "@angular/router";
+import {ConfirmEmail} from "../../../models/confirmEmail";
+import {AuthenticationService} from "../../../services/authentication.service";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-confirm-email',
@@ -7,9 +11,37 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfirmEmailComponent implements OnInit {
 
-  constructor() { }
+  errorMessage: string = '';
+
+  constructor(private authentication: AuthenticationService,
+              private route: ActivatedRoute,
+              private router: Router) { }
 
   ngOnInit(): void {
+    this.confirmEmail();
+  }
+
+  confirmEmail() {
+    const token = this.route.snapshot.queryParams['token'];
+    const email = this.route.snapshot.queryParams['email'];
+    const confirmation = new ConfirmEmail(email, token);
+    this.authentication.confirmEmail(confirmation)
+      .subscribe({
+        next: token =>
+        {
+          localStorage.setItem("token", token);
+          if (this.authentication.isLoggedIn())
+          {
+            this.router.navigate([""]);
+          }
+        },
+        error: (response: HttpErrorResponse) =>
+        {
+          this.errorMessage = response.message;
+          alert("Confirmation error. Please try again :(");
+        }
+      });
+
   }
 
 }

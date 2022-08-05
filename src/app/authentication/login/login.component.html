@@ -1,1 +1,24 @@
-<p>login works!</p>
+<h2>Log In</h2>
+<form #myForm="ngForm" novalidate>
+  <div class="form-group">
+    <label>Email:</label>
+    <input class="form-control" type="email" name="email" [min]="5"
+           [(ngModel)]="loginModel.email" required />
+  </div>
+  <div class="form-group">
+    <label>Password:</label>
+    <input class="form-control" type="password" name="pass" minlength="5"
+           [(ngModel)]="loginModel.password" required/>
+  </div>
+  <div>
+    <p>If you don't have an account <a routerLink="/register">register</a></p>
+  </div>
+  <div class="form-group">
+    <button [disabled]="myForm.invalid"
+            class="btn btn-default" (click)="login()">Log In</button>
+  </div>
+  <div>
+    {{errorMessage}}
+  </div>
+</form>
+

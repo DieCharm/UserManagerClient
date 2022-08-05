@@ -1,1 +1,14 @@
-<p>confirm-email works!</p>
+<h4 *ngIf="errorMessage.length === 0">
+  Confirmation is proceeding
+</h4>
+<p *ngIf="errorMessage.length === 0">
+  Wait few (mili)seconds...
+</p>
+<h4 *ngIf="errorMessage.length !== 0">
+  Confirmation Error
+</h4>
+<p *ngIf="errorMessage.length !== 0">
+  {{errorMessage}}
+</p>
+
+

@@ -8,6 +8,20 @@ import { ConfirmEmailComponent } from './authentication/confirm-email/confirm-em
 import { CrudComponent } from './users/crud/crud.component';
 import { UserComponent } from './users/user/user.component';
 import { FormComponent } from './users/form/form.component';
+import {FormsModule} from "@angular/forms";
+import {Routes, RouterModule} from "@angular/router";
+import { HomeComponent } from './users/home/home.component';
+import {HttpClientModule} from "@angular/common/http";
+import {JwtModule} from "@auth0/angular-jwt";
+import {AppGuard} from "./guards/app.guard";
+import {AuthGuard} from "./guards/auth.guard";
+
+const appRoutes: Routes = [
+  {path: "", component: HomeComponent, canActivate: [AppGuard]},
+  {path: "login", component: LoginComponent, canActivate: [AuthGuard]},
+  {path: "register", component: RegisterComponent, canActivate: [AuthGuard]},
+  {path: "confirm-email", component: ConfirmEmailComponent, canActivate: [AuthGuard]}
+]
 
 @NgModule({
   declarations: [
@@ -17,10 +31,15 @@ import { FormComponent } from './users/form/form.component';
     ConfirmEmailComponent,
     CrudComponent,
     UserComponent,
-    FormComponent
+    FormComponent,
+    HomeComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    HttpClientModule,
+    JwtModule,
+    RouterModule.forRoot(appRoutes)
   ],
   providers: [],
   bootstrap: [AppComponent]
