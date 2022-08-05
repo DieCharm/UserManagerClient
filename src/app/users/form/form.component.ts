@@ -21,7 +21,9 @@ export class FormComponent {
         {
           this.onAdd.emit();
           this.formModel = new User();
-        }
+        },
+        error: () =>
+          this.formModel = new User()
       });
   }
 
