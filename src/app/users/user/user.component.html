@@ -48,7 +48,8 @@
 
       <div class="row">
         <div class="form-group user-input col">
-          <input class="form-control" type="email" name="email" [minlength]="5" [maxlength]="30" placeholder="Email"
+          <input class="form-control" type="email" name="email"
+                 pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" [minlength]="5" [maxlength]="30" placeholder="Email"
                  [(ngModel)]="formModel.email" required />
         </div>
 
