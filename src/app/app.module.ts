@@ -16,6 +16,9 @@ import {JwtModule} from "@auth0/angular-jwt";
 import {AppGuard} from "./guards/app.guard";
 import {AuthGuard} from "./guards/auth.guard";
 import {AuthenticationInterceptor} from "./users/authentication.interceptor";
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
+import {MatButtonModule} from '@angular/material/button';
+import {MatIconModule} from "@angular/material/icon";
 
 const appRoutes: Routes = [
   {path: "", component: HomeComponent, canActivate: [AppGuard]},
@@ -40,7 +43,10 @@ const appRoutes: Routes = [
     FormsModule,
     HttpClientModule,
     JwtModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    NoopAnimationsModule,
+    MatButtonModule,
+    MatIconModule
   ],
   providers: [{
     provide: HTTP_INTERCEPTORS,

@@ -1,0 +1,43 @@
+.navbar {
+  width: 100vw;
+  height: 100px;
+  background-color: #629ffc;
+  display: flex;
+  flex-direction: row;
+}
+
+.logo-container {
+  padding: 10px;
+  border: #06449d 2px solid;
+  margin-left: 50px;
+  width: 80px;
+  height: 80px;
+}
+
+.user, .manager {
+  font-family: "Anton";
+  margin-left: -7px;
+  color: #06449d;
+}
+
+.user {
+  font-size: 40px;
+}
+.manager {
+  font-size: 20px;
+}
+
+.user-info-container {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  margin-right: 50px;
+}
+
+.username {
+  margin-right: 20px;
+}
+
+.logout {
+  color: #b60000;
+}

@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
 import {ConfirmEmail} from "../../../models/confirmEmail";
 import {AuthenticationService} from "../../../services/authentication.service";
-import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-confirm-email',
@@ -35,13 +34,11 @@ export class ConfirmEmailComponent implements OnInit {
             this.router.navigate([""]);
           }
         },
-        error: (response: HttpErrorResponse) =>
+        error: () =>
         {
-          this.errorMessage = response.message;
-          alert("Confirmation error. Please try again :(");
+          this.errorMessage = "Confirmation error. Please try again";
         }
       });
-
   }
 
 }

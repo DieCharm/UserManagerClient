@@ -1,14 +1,15 @@
-<h4 *ngIf="errorMessage.length === 0">
-  Confirmation is proceeding
-</h4>
-<p *ngIf="errorMessage.length === 0">
-  Wait few (mili)seconds...
-</p>
-<h4 *ngIf="errorMessage.length !== 0">
-  Confirmation Error
-</h4>
-<p *ngIf="errorMessage.length !== 0">
-  {{errorMessage}}
-</p>
-
+<div class="form-container">
+  <h2 *ngIf="errorMessage.length === 0">
+    Confirmation is proceeding
+  </h2>
+  <p *ngIf="errorMessage.length === 0">
+    Wait few (mili)seconds...
+  </p>
+  <h2 *ngIf="errorMessage.length !== 0">
+    Confirmation Error
+  </h2>
+  <p *ngIf="errorMessage.length !== 0">
+    {{errorMessage}}
+  </p>
+</div>
 

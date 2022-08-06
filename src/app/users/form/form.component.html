@@ -1,41 +1,46 @@
-<form #myForm="ngForm" novalidate>
+<div class="user-form-container">
 
-  <div class="form-group">
-    <input class="form-control" type="text" name="firstname" pattern="[^0-9]*"
-           [minlength]="2" [maxlength]="30" placeholder="First Name"
-           [(ngModel)]="formModel.firstName" required />
-  </div>
+  <h2 class="top-title">Add User</h2>
 
-  <div class="form-group">
-    <input class="form-control" type="text" name="lastname" pattern="[^0-9]*"
-           [minlength]="3" [maxlength]="30" placeholder="Last Name"
-           [(ngModel)]="formModel.lastName" required/>
-  </div>
+  <form #myForm="ngForm" novalidate>
 
-  <div class="form-group">
-    <input class="form-control" type="date" name="birthdate" min="1900-01-01" max="2020-01-01" placeholder="Birth Date"
-           [(ngModel)]="formModel.birthDate" required/>
-  </div>
+    <div class="form-group row form-input">
+      <input class="form-control" type="text" name="firstname" pattern="[^0-9]*"
+             [minlength]="2" [maxlength]="30" placeholder="First Name"
+             [(ngModel)]="formModel.firstName" required />
+    </div>
 
-  <div class="form-group">
-    <input class="form-control" type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-           [minlength]="5" [maxlength]="30" placeholder="Email"
-           [(ngModel)]="formModel.email" required />
-  </div>
+    <div class="form-group row form-input">
+      <input class="form-control" type="text" name="lastname" pattern="[^0-9]*"
+             [minlength]="3" [maxlength]="30" placeholder="Last Name"
+             [(ngModel)]="formModel.lastName" required/>
+    </div>
 
-  <div class="form-group">
-    <input class="form-control" type="tel" name="phone" pattern="[^a-z]*" [minlength]="7" [maxlength]="15" placeholder="Phone Number"
-           [(ngModel)]="formModel.phoneNumber" required />
-  </div>
+    <div class="form-group row form-input">
+      <input class="form-control" type="date" name="birthdate" min="1900-01-01" max="2020-01-01" placeholder="Birth Date"
+             [(ngModel)]="formModel.birthDate" required/>
+    </div>
 
-  <div class="form-group">
-    <input class="form-control" type="text" name="info" [maxlength]="200" placeholder="Additional Info"
-           [(ngModel)]="formModel.info" required/>
-  </div>
+    <div class="form-group row form-input">
+      <input class="form-control" type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+             [minlength]="5" [maxlength]="30" placeholder="Email"
+             [(ngModel)]="formModel.email" required />
+    </div>
 
-  <div class="form-group">
-    <button [disabled]="myForm.invalid"
-            (click)="create()">Add User</button>
-  </div>
-</form>
+    <div class="form-group row form-input">
+      <input class="form-control" type="tel" name="phone" pattern="[^a-z]*" [minlength]="7" [maxlength]="15" placeholder="Phone Number"
+             [(ngModel)]="formModel.phoneNumber" required />
+    </div>
+
+    <div class="form-group row form-input">
+      <input class="form-control" type="text" name="info" [maxlength]="200" placeholder="Additional Info"
+             [(ngModel)]="formModel.info" required/>
+    </div>
+
+    <div class="form-group form-input form-button-container">
+      <button [disabled]="myForm.invalid"
+              class="btn btn-primary" (click)="create()">Add User</button>
+    </div>
+  </form>
+</div>
 

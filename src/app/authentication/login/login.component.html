@@ -1,23 +1,26 @@
-<h2>Log In</h2>
-<form #myForm="ngForm" novalidate>
-  <div class="form-group">
-    <input class="form-control" type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-           [minlength]="5" [maxlength]="30" placeholder="Email"
-           [(ngModel)]="loginModel.email" required />
-  </div>
-  <div class="form-group">
-    <input class="form-control" type="password" name="pass" [minlength]="5" [maxlength]="30" placeholder="Password"
-           [(ngModel)]="loginModel.password" required/>
-  </div>
-  <div>
-    <p>If you don't have an account <a routerLink="/register">register</a></p>
-  </div>
-  <div class="form-group">
-    <button [disabled]="myForm.invalid"
-            class="btn btn-default" (click)="login()">Log In</button>
-  </div>
-  <div>
-    {{errorMessage}}
-  </div>
-</form>
+<div class="form-container">
+  <h2 class="top-title">Log In</h2>
+  <form #myForm="ngForm" novalidate>
+    <div class="form-group row form-input">
+      <input class="form-control" id="inputEmail3" type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+             [minlength]="5" [maxlength]="30" placeholder="Email"
+             [(ngModel)]="loginModel.email" required />
+    </div>
+    <div class="form-group row form-input">
+      <input class="form-control" id="inputPassword3" type="password" name="pass"
+             [minlength]="5" [maxlength]="30" placeholder="Password"
+             [(ngModel)]="loginModel.password" required/>
+    </div>
+    <div class="form-input">
+      <p>If you don't have an account <a routerLink="/register">register</a></p>
+    </div>
+    <div class="form-group form-input form-button-container">
+      <button [disabled]="myForm.invalid"
+              class="btn  btn-primary" (click)="login()">Log In</button>
+    </div>
+    <div>
+      {{errorMessage}}
+    </div>
+  </form>
+</div>
 

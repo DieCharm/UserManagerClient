@@ -1,39 +1,43 @@
-<h2 *ngIf="!registered">Register</h2>
-<form *ngIf="!registered" #myForm="ngForm" novalidate>
-  <div class="form-group">
-    <input class="form-control" type="text" name="username" [minlength]="2" [maxlength]="30"  placeholder="Username"
-           [(ngModel)]="registerModel.username" required />
-  </div>
-  <div class="form-group">
-    <input class="form-control" type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
-           [minlength]="5" [maxlength]="30" placeholder="Email"
-           [(ngModel)]="registerModel.email" required />
-  </div>
-  <div class="form-group">
-    <input class="form-control" type="password" name="pass" [minlength]="5" [maxlength]="30" placeholder="Password"
-           [(ngModel)]="registerModel.password" required/>
-  </div>
-  <div class="form-group">
-    <input class="form-control" type="password" name="confirmPass" [minlength]="5" [maxlength]="30" placeholder="Confirm Password"
-           [(ngModel)]="registerModel.confirmPassword" required/>
-  </div>
-  <div>
-    <p>If you already have an account <a routerLink="/login">log in</a></p>
-  </div>
-  <div class="form-group">
-    <button [disabled]="myForm.invalid"
-            class="btn btn-default" (click)="register()">Register</button>
-  </div>
-  <div>
-    <p></p>
-  </div>
-</form>
+<div class="form-container">
+  <h2 *ngIf="!registered" class="top-title">Register</h2>
+  <form *ngIf="!registered" #myForm="ngForm" novalidate>
+    <div class="form-group row form-input">
+      <input class="form-control" type="text" name="username" [minlength]="2" [maxlength]="30"  placeholder="Username"
+             [(ngModel)]="registerModel.username" required />
+    </div>
+    <div class="form-group row form-input">
+      <input class="form-control" type="email" name="email" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+             [minlength]="5" [maxlength]="30" placeholder="Email"
+             [(ngModel)]="registerModel.email" required />
+    </div>
+    <div class="form-group row form-input">
+      <input class="form-control" type="password" name="pass" [minlength]="5" [maxlength]="30" placeholder="Password"
+             [(ngModel)]="registerModel.password" required/>
+    </div>
+    <div class="form-group row form-input">
+      <input class="form-control" type="password" name="confirmPass" [minlength]="5" [maxlength]="30" placeholder="Confirm Password"
+             [(ngModel)]="registerModel.confirmPassword" required/>
+    </div>
+    <div class="form-input">
+      <p>If you already have an account <a routerLink="/login">log in</a></p>
+    </div>
+    <div class="form-group form-input form-button-container">
+      <button [disabled]="myForm.invalid"
+              class="btn btn-primary" (click)="register()">Register</button>
+    </div>
+    <div>
+      <p></p>
+    </div>
+  </form>
 
-<div *ngIf="registered">
-  <h4>Confirm your email</h4>
-  <p>Check your mailbox and visit a confirmation link</p>
-</div>
+  <div class="form-container" *ngIf="registered">
+    <h2>Confirm your email</h2>
+    <p>Check your mailbox and visit a confirmation link</p>
+    <button class="btn  btn-primary" (click)="goToHome()">Back to home</button>
+  </div>
 
-<div>
-  {{errorMessage}}
+  <div>
+    {{errorMessage}}
+  </div>
+
 </div>

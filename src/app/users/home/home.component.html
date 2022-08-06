@@ -1,3 +1,11 @@
-<p>{{username}}</p>
-<button (click)="logout()">Log Out</button>
+<div class="navbar">
+  <div class="logo-container">
+    <p class="user">User</p>
+    <p class="manager">manager</p>
+  </div>
+  <div class="user-info-container">
+    <p class="username">{{username}}</p>
+    <button class="btn logout" (click)="logout()">Log Out</button>
+  </div>
+</div>
 <app-crud></app-crud>

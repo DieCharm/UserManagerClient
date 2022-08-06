@@ -1,0 +1,35 @@
+.user-container {
+  border-radius: 5px;
+  border: #06449d 1px solid;
+  margin: 5px;
+  width: 100%;
+}
+
+td {
+  margin: 20px;
+}
+
+.buttons-container {
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.user-input {
+  margin: 15px;
+}
+
+.user-form {
+  margin-top: 10px;
+}
+
+.table-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.table-row:hover {
+  cursor: pointer;
+}
